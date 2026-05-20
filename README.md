@@ -13,4 +13,4 @@ Comparing results with traditional methods
 ## Current Status
 Actively working on it (May 2026).
 Data collection is done. Right now focused on fine-tuning prompts specifically for Pashupatinath’s unique religious and cultural context.
-Goal: Help improve tourist experience while supporting sustainable preservation of this living heritage site.
+## Goal: Help improve tourist experience while supporting sustainable preservation of this living heritage site.
