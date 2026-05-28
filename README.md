@@ -19,4 +19,4 @@ Data collection is done. Right now focused on fine-tuning prompts specifically f
 # How our system may look like: https://heritage-pulse-ai.lovable.app
 
 
-https://docs.google.com/document/d/1rfX1UQ4v2hJuEWoGTSz1m5yRbmBFMfyYEXkjVMXJm90/edit?usp=sharing
+# Link to the Report - https://docs.google.com/document/d/1rfX1UQ4v2hJuEWoGTSz1m5yRbmBFMfyYEXkjVMXJm90/edit?usp=sharing
