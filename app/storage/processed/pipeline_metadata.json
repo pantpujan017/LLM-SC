@@ -1,0 +1,38 @@
+{
+  "total_raw_reviews": 3945,
+  "total_cleaned_reviews": 3944,
+  "duplicates_found": 1,
+  "failed_validations": 0,
+  "processing_time_seconds": 0.36,
+  "pipeline_version": "2.0",
+  "execution_timestamp": "2026-05-27T11:56:22.783461Z",
+  "sacred_content_count": 3352,
+  "sentiment_distribution": {
+    "positive": 3414,
+    "neutral": 347,
+    "negative": 183
+  },
+  "period_distribution": {
+    "post_recovery": 98,
+    "recovery_late": 45,
+    "recovery_early": 41,
+    "covid_deep": 14,
+    "covid_onset": 75,
+    "pre_covid_peak": 955,
+    "growth_period": 2396,
+    "early_period": 320
+  },
+  "trip_type_distribution": {
+    "solo": 796,
+    "couples": 833,
+    "friends": 993,
+    "family": 651,
+    "business": 218,
+    "unknown": 453
+  },
+  "reviewer_type_distribution": {
+    "elite": 1468,
+    "casual": 1280,
+    "experienced": 1196
+  }
+}

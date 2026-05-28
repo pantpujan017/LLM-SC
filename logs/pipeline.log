@@ -1,0 +1,98 @@
+2026-05-27 17:05:49 | INFO     | __main__:main:33 | Starting pipeline in 'clean' mode
+2026-05-27 17:05:49 | INFO     | __main__:_run_cleaner:81 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:61 | ============================================================
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:62 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:63 | ============================================================
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:69 | 
+[1/5] Loading raw JSON...
+2026-05-27 17:05:49 | INFO     | app.pipeline.loader:load_json:64 | Loaded 199 pages from pashupatinath_reviews_raw.json
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:73 |     Loaded 199 pages
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:74 |     Total raw reviews: 3945
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:79 | 
+[2/5] Flattening paginated structure...
+2026-05-27 17:05:49 | INFO     | app.pipeline.flattener:flatten:49 | Flattened 3945 reviews from 199 pages (0 pages skipped)
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:81 |     Flattened reviews: 3945
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:86 | 
+[3/5] Engineering features...
+2026-05-27 17:05:49 | INFO     | app.pipeline.engineer:process_batch:60 | Feature engineering: 3945 processed, 0 failed
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:88 |     Engineered reviews: 3945
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:93 | 
+[4/5] Deduplicating by review_id...
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:95 |     Unique reviews: 3944
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:96 |     Duplicates removed: 1
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:101 | 
+[5/5] Validating schema...
+2026-05-27 17:05:49 | INFO     | app.cleaning.validators:validate_batch:39 | Validation: 3944 valid, 0 failed
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:103 |     Valid reviews: 3944
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:104 |     Failed validation: 0
+2026-05-27 17:05:49 | INFO     | app.pipeline.executor:execute:109 | 
+Exporting to CSV/Parquet/Metadata...
+2026-05-27 17:05:49 | SUCCESS  | app.pipeline.exporter:export:72 | Exported CSV (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-27 17:05:51 | SUCCESS  | app.pipeline.exporter:export:84 | Exported Parquet (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.parquet
+2026-05-27 17:05:51 | SUCCESS  | app.pipeline.exporter:export_metadata:104 | Exported metadata → app/storage/processed/pipeline_metadata.json
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:129 | 
+============================================================
+2026-05-27 17:05:51 | SUCCESS  | app.pipeline.executor:execute:130 | PHASE 2 COMPLETE in 1.92s
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:131 | ============================================================
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:132 | Raw reviews:        3,945
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:133 | Cleaned reviews:    3,944
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:134 | Sacred content:     3,352
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:135 | Sentiment dist:     {'positive': 3414, 'neutral': 347, 'negative': 183}
+2026-05-27 17:05:51 | INFO     | app.pipeline.executor:execute:136 | ============================================================
+
+2026-05-27 17:05:51 | SUCCESS  | __main__:_run_cleaner:100 | 
+PIPELINE SUCCESS
+2026-05-27 17:05:51 | INFO     | __main__:_run_cleaner:101 | Output directory: app/storage/processed
+2026-05-27 17:05:51 | INFO     | __main__:_run_cleaner:102 | Files created:
+2026-05-27 17:05:51 | INFO     | __main__:_run_cleaner:103 |   - pashupatinath_reviews_clean.csv
+2026-05-27 17:05:51 | INFO     | __main__:_run_cleaner:104 |   - pashupatinath_reviews_clean.parquet
+2026-05-27 17:05:51 | INFO     | __main__:_run_cleaner:105 |   - pipeline_metadata.json
+2026-05-27 17:41:22 | INFO     | __main__:main:33 | Starting pipeline in 'clean' mode
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:81 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:61 | ============================================================
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:62 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:63 | ============================================================
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:69 | 
+[1/5] Loading raw JSON...
+2026-05-27 17:41:22 | INFO     | app.pipeline.loader:load_json:64 | Loaded 199 pages from pashupatinath_reviews_raw.json
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:73 |     Loaded 199 pages
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:74 |     Total raw reviews: 3945
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:79 | 
+[2/5] Flattening paginated structure...
+2026-05-27 17:41:22 | INFO     | app.pipeline.flattener:flatten:49 | Flattened 3945 reviews from 199 pages (0 pages skipped)
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:81 |     Flattened reviews: 3945
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:86 | 
+[3/5] Engineering features...
+2026-05-27 17:41:22 | INFO     | app.pipeline.engineer:process_batch:60 | Feature engineering: 3945 processed, 0 failed
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:88 |     Engineered reviews: 3945
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:93 | 
+[4/5] Deduplicating by review_id...
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:95 |     Unique reviews: 3944
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:96 |     Duplicates removed: 1
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:101 | 
+[5/5] Validating schema...
+2026-05-27 17:41:22 | INFO     | app.cleaning.validators:validate_batch:39 | Validation: 3944 valid, 0 failed
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:103 |     Valid reviews: 3944
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:104 |     Failed validation: 0
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:109 | 
+Exporting to CSV/Parquet/Metadata...
+2026-05-27 17:41:22 | SUCCESS  | app.pipeline.exporter:export:72 | Exported CSV (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-27 17:41:22 | SUCCESS  | app.pipeline.exporter:export:84 | Exported Parquet (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.parquet
+2026-05-27 17:41:22 | SUCCESS  | app.pipeline.exporter:export_metadata:104 | Exported metadata → app/storage/processed/pipeline_metadata.json
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:129 | 
+============================================================
+2026-05-27 17:41:22 | SUCCESS  | app.pipeline.executor:execute:130 | PHASE 2 COMPLETE in 0.36s
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:131 | ============================================================
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:132 | Raw reviews:        3,945
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:133 | Cleaned reviews:    3,944
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:134 | Sacred content:     3,352
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:135 | Sentiment dist:     {'positive': 3414, 'neutral': 347, 'negative': 183}
+2026-05-27 17:41:22 | INFO     | app.pipeline.executor:execute:136 | ============================================================
+
+2026-05-27 17:41:22 | SUCCESS  | __main__:_run_cleaner:100 | 
+PIPELINE SUCCESS
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:101 | Output directory: app/storage/processed
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:102 | Files created:
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:103 |   - pashupatinath_reviews_clean.csv
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:104 |   - pashupatinath_reviews_clean.parquet
+2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:105 |   - pipeline_metadata.json
