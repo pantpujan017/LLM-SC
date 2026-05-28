@@ -14,3 +14,6 @@ Comparing results with traditional methods
 Actively working on it (May 2026).
 Data collection is done. Right now focused on fine-tuning prompts specifically for Pashupatinath’s unique religious and cultural context.
 ## Goal: Help improve tourist experience while supporting sustainable preservation of this living heritage site.
+
+
+# How our system may look like: https://heritage-pulse-ai.lovable.app
