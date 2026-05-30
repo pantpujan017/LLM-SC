@@ -3,9 +3,9 @@
   "total_cleaned_reviews": 3944,
   "duplicates_found": 1,
   "failed_validations": 0,
-  "processing_time_seconds": 0.36,
+  "processing_time_seconds": 0.49,
   "pipeline_version": "2.0",
-  "execution_timestamp": "2026-05-27T11:56:22.783461Z",
+  "execution_timestamp": "2026-05-30T07:41:08.157885Z",
   "sacred_content_count": 3352,
   "sentiment_distribution": {
     "positive": 3414,

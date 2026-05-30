@@ -103,6 +103,53 @@ REVIEWER_TYPE_THRESHOLDS = {
 }
 
 # ============================================================
+# ASPECT TO ENTITY TYPE MAPPING
+# ============================================================
+# Maps sentiment aspects to the entity types they describe
+ASPECT_TO_ENTITY_TYPE = {
+    "service": ["facility_service"],
+    "facility": ["facility_service"],
+    "environment": ["scenic_spot", "sacred_space"],
+    "sacred_atmosphere": ["sacred_space"],
+    "spiritual_authenticity": ["spiritual_emotion"],
+    "ritual_experience": ["ritual", "festival_event"],
+    "cultural_sensitivity": ["cultural_rule"],
+    "access_fairness": ["problem"],
+    "crowd_management": ["problem"],
+    "general_sentiment": ["general_sentiment"],
+    "problem": ["problem"],
+    "scenic_spot": ["scenic_spot"],
+}
+
+ENTITY_TYPE_FIXES = {
+    "cremation ceremony": "ritual",
+    "crowd_management":   "problem",
+    "description":        "scenic_spot",
+    "environment":        "sacred_space",
+    "contrast":           "general_sentiment",
+}
+
+SENTIMENT_LABEL_FIXES = {
+    "mixed": "neutral",
+    "dual_valence": "neutral",
+}
+
+RELATION_TYPE_FIXES = {
+    "cultural_rule": "description",
+}
+
+# Canonical sets for validation
+VALID_ENTITY_TYPES = {
+    "scenic_spot", "problem", "facility_service", "general_sentiment",
+    "ritual", "religious_actor", "sacred_space", "spiritual_emotion",
+    "festival_event", "cultural_rule", "sacred_object", "dual_valence"
+}
+
+VALID_SENTIMENTS = {"positive", "neutral", "negative"}
+
+VALID_RELATIONS = {"co_occurrence", "causal", "description", "contrast"}
+
+# ============================================================
 # TEXT CLEANING CONFIGURATION
 # ============================================================
 # Unicode normalization form

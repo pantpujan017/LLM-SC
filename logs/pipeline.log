@@ -96,3 +96,827 @@ PIPELINE SUCCESS
 2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:103 |   - pashupatinath_reviews_clean.csv
 2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:104 |   - pashupatinath_reviews_clean.parquet
 2026-05-27 17:41:22 | INFO     | __main__:_run_cleaner:105 |   - pipeline_metadata.json
+2026-05-30 13:24:40 | INFO     | __main__:main:35 | Starting pipeline in 'social' mode
+2026-05-30 13:24:40 | INFO     | __main__:_run_social_computing:123 | PHASE 3: Social Network Computing
+2026-05-30 13:24:40 | ERROR    | __main__:_run_social_computing:138 | Required file not found: app/storage/processed/raw/entities_clean.csv
+2026-05-30 13:24:40 | INFO     | __main__:_run_social_computing:139 | Run PHASE 2 first: PIPELINE_MODE=clean python -m app.main
+2026-05-30 13:26:07 | INFO     | __main__:main:35 | Starting pipeline in 'clean' mode
+2026-05-30 13:26:07 | INFO     | __main__:_run_cleaner:89 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:61 | ============================================================
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:62 | PHASE 2: Data Cleaning & Dataset Structuring
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:63 | ============================================================
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:69 | 
+[1/5] Loading raw JSON...
+2026-05-30 13:26:07 | INFO     | app.pipeline.loader:load_json:64 | Loaded 199 pages from pashupatinath_reviews_raw.json
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:73 |     Loaded 199 pages
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:74 |     Total raw reviews: 3945
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:79 | 
+[2/5] Flattening paginated structure...
+2026-05-30 13:26:07 | INFO     | app.pipeline.flattener:flatten:49 | Flattened 3945 reviews from 199 pages (0 pages skipped)
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:81 |     Flattened reviews: 3945
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:86 | 
+[3/5] Engineering features...
+2026-05-30 13:26:07 | INFO     | app.pipeline.engineer:process_batch:60 | Feature engineering: 3945 processed, 0 failed
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:88 |     Engineered reviews: 3945
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:93 | 
+[4/5] Deduplicating by review_id...
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:95 |     Unique reviews: 3944
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:96 |     Duplicates removed: 1
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:101 | 
+[5/5] Validating schema...
+2026-05-30 13:26:07 | INFO     | app.cleaning.validators:validate_batch:39 | Validation: 3944 valid, 0 failed
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:103 |     Valid reviews: 3944
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:104 |     Failed validation: 0
+2026-05-30 13:26:07 | INFO     | app.pipeline.executor:execute:109 | 
+Exporting to CSV/Parquet/Metadata...
+2026-05-30 13:26:07 | SUCCESS  | app.pipeline.exporter:export:72 | Exported CSV (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 13:26:08 | SUCCESS  | app.pipeline.exporter:export:84 | Exported Parquet (3944 rows) → app/storage/processed/pashupatinath_reviews_clean.parquet
+2026-05-30 13:26:08 | SUCCESS  | app.pipeline.exporter:export_metadata:104 | Exported metadata → app/storage/processed/pipeline_metadata.json
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:129 | 
+============================================================
+2026-05-30 13:26:08 | SUCCESS  | app.pipeline.executor:execute:130 | PHASE 2 COMPLETE in 0.49s
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:131 | ============================================================
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:132 | Raw reviews:        3,945
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:133 | Cleaned reviews:    3,944
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:134 | Sacred content:     3,352
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:135 | Sentiment dist:     {'positive': 3414, 'neutral': 347, 'negative': 183}
+2026-05-30 13:26:08 | INFO     | app.pipeline.executor:execute:136 | ============================================================
+
+2026-05-30 13:26:08 | SUCCESS  | __main__:_run_cleaner:108 | 
+PIPELINE SUCCESS
+2026-05-30 13:26:08 | INFO     | __main__:_run_cleaner:109 | Output directory: app/storage/processed
+2026-05-30 13:26:08 | INFO     | __main__:_run_cleaner:110 | Files created:
+2026-05-30 13:26:08 | INFO     | __main__:_run_cleaner:111 |   - pashupatinath_reviews_clean.csv
+2026-05-30 13:26:08 | INFO     | __main__:_run_cleaner:112 |   - pashupatinath_reviews_clean.parquet
+2026-05-30 13:26:08 | INFO     | __main__:_run_cleaner:113 |   - pipeline_metadata.json
+2026-05-30 13:39:15 | INFO     | __main__:main:37 | Starting pipeline in 'clean_tables' mode
+2026-05-30 13:39:15 | INFO     | __main__:_run_table_cleaner:170 | PHASE 2.5: Table Cleaning & Semantic Alignment
+2026-05-30 13:39:15 | ERROR    | __main__:_run_table_cleaner:184 | Raw table not found: app/storage/tables/raw/entities_table.csv
+2026-05-30 13:39:33 | INFO     | __main__:main:37 | Starting pipeline in 'clean_tables' mode
+2026-05-30 13:39:33 | INFO     | __main__:_run_table_cleaner:170 | PHASE 2.5: Table Cleaning & Semantic Alignment
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:45 | ======================================================================
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:46 | PHASE 2.5: TABLE CLEANING PIPELINE
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:47 | ======================================================================
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:66 | Processing entities_table.csv...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_entities:35 | Cleaning entities table...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_entities:42 |   Entity type violations fixed: 28 -> 0
+2026-05-30 13:39:33 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/entities_clean.csv
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:66 | Processing sentiments_table.csv...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_sentiments:55 | Cleaning sentiments table...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_sentiments:62 |   Sentiment label violations fixed: 11 -> 0
+2026-05-30 13:39:33 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/sentiments_clean.csv
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:66 | Processing relations_table.csv...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_relations:73 | Cleaning relations table...
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_relations:80 |   Relation type violations fixed: 16 -> 0
+2026-05-30 13:39:33 | INFO     | app.cleaning.table_cleaner:clean_relations:85 |   Self-relations removed: 4
+2026-05-30 13:39:33 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/relations_clean.csv
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:80 | ======================================================================
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:81 | TABLE CLEANING COMPLETE
+2026-05-30 13:39:33 | INFO     | app.pipeline.table_executor:execute:82 | ======================================================================
+2026-05-30 13:39:33 | SUCCESS  | __main__:_run_table_cleaner:194 | 
+TABLE CLEANING SUCCESS
+2026-05-30 13:39:33 | INFO     | __main__:_run_table_cleaner:195 | Processed tables saved to: app/storage/tables/processed
+2026-05-30 13:39:33 | INFO     | __main__:_run_table_cleaner:197 |   - entities_table.csv: 11,314 rows
+2026-05-30 13:39:33 | INFO     | __main__:_run_table_cleaner:197 |   - sentiments_table.csv: 6,232 rows
+2026-05-30 13:39:33 | INFO     | __main__:_run_table_cleaner:197 |   - relations_table.csv: 5,586 rows
+2026-05-30 13:39:33 | ERROR    | __main__:_run_table_cleaner:217 | PHASE 3 failed: name 'data_dir' is not defined
+2026-05-30 13:40:26 | INFO     | __main__:main:37 | Starting pipeline in 'clean_tables' mode
+2026-05-30 13:40:26 | INFO     | __main__:_run_table_cleaner:170 | PHASE 2.5: Table Cleaning & Semantic Alignment
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:45 | ======================================================================
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:46 | PHASE 2.5: TABLE CLEANING PIPELINE
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:47 | ======================================================================
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:66 | Processing entities_table.csv...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_entities:35 | Cleaning entities table...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_entities:42 |   Entity type violations fixed: 28 -> 0
+2026-05-30 13:40:26 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/entities_clean.csv
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:66 | Processing sentiments_table.csv...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_sentiments:55 | Cleaning sentiments table...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_sentiments:62 |   Sentiment label violations fixed: 11 -> 0
+2026-05-30 13:40:26 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/sentiments_clean.csv
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:66 | Processing relations_table.csv...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_relations:73 | Cleaning relations table...
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_relations:80 |   Relation type violations fixed: 16 -> 0
+2026-05-30 13:40:26 | INFO     | app.cleaning.table_cleaner:clean_relations:85 |   Self-relations removed: 4
+2026-05-30 13:40:26 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/relations_clean.csv
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:80 | ======================================================================
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:81 | TABLE CLEANING COMPLETE
+2026-05-30 13:40:26 | INFO     | app.pipeline.table_executor:execute:82 | ======================================================================
+2026-05-30 13:40:26 | SUCCESS  | __main__:_run_table_cleaner:194 | 
+TABLE CLEANING SUCCESS
+2026-05-30 13:40:26 | INFO     | __main__:_run_table_cleaner:195 | Processed tables saved to: app/storage/tables/processed
+2026-05-30 13:40:26 | INFO     | __main__:_run_table_cleaner:197 |   - entities_table.csv: 11,314 rows
+2026-05-30 13:40:26 | INFO     | __main__:_run_table_cleaner:197 |   - sentiments_table.csv: 6,232 rows
+2026-05-30 13:40:26 | INFO     | __main__:_run_table_cleaner:197 |   - relations_table.csv: 5,586 rows
+2026-05-30 13:40:41 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 13:40:41 | INFO     | __main__:_run_social_computing:131 | PHASE 3: Social Network Computing
+2026-05-30 13:40:41 | INFO     | app.social.pipeline:execute:63 | ======================================================================
+2026-05-30 13:40:41 | INFO     | app.social.pipeline:execute:64 | PHASE 3: SOCIAL NETWORK COMPUTING LAYER
+2026-05-30 13:40:41 | INFO     | app.social.pipeline:execute:65 | ======================================================================
+2026-05-30 13:40:41 | INFO     | app.social.pipeline:execute:69 | 
+[PHASE 3a] Data Integration & HIN Construction
+2026-05-30 13:40:41 | INFO     | app.social.builders.graph_builder:build:64 | PHASE 3a: Building Heterogeneous Information Network
+2026-05-30 13:40:41 | INFO     | app.social.loaders.csv_loader:load_all:43 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 13:40:41 | DEBUG    | app.social.loaders.csv_loader:load_entities:64 | Loaded 11314 entity rows
+2026-05-30 13:40:41 | DEBUG    | app.social.loaders.csv_loader:load_relations:76 | Loaded 5586 relation rows
+2026-05-30 13:40:41 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:88 | Loaded 6232 sentiment rows
+2026-05-30 13:40:41 | INFO     | app.social.loaders.csv_loader:load_all:49 |   Entities: 11,314 rows
+2026-05-30 13:40:41 | INFO     | app.social.loaders.csv_loader:load_all:50 |   Relations: 5,586 rows
+2026-05-30 13:40:41 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Sentiments: 6,232 rows
+2026-05-30 13:40:41 | INFO     | app.social.builders.graph_builder:_build_nodes:90 | Building nodes (concept-level deduplication)...
+2026-05-30 13:40:42 | DEBUG    | app.social.builders.graph_builder:_build_nodes:117 |   Added 5,925 deduplicated nodes
+2026-05-30 13:40:42 | INFO     | app.social.builders.graph_builder:_build_nodes:118 |   Deduplication ratio: 191.0%
+2026-05-30 13:40:42 | INFO     | app.social.builders.graph_builder:_build_edges:132 | Building weighted edges...
+2026-05-30 13:40:42 | DEBUG    | app.social.builders.graph_builder:_build_edges:185 |   Added 5,221 weighted edges
+2026-05-30 13:40:42 | DEBUG    | app.social.builders.graph_builder:_build_edges:186 |   Edge weight formula: w_ij = 0.7*f_cooccur + 0.3*g_causal
+2026-05-30 13:40:42 | INFO     | app.social.builders.graph_builder:_attach_sentiments:196 | Attaching sentiment attributes to nodes...
+2026-05-30 13:40:42 | ERROR    | app.social.pipeline:execute:87 | PHASE 3 FAILED: 'entity_name'
+2026-05-30 13:40:42 | ERROR    | __main__:_run_social_computing:164 | PHASE 3 failed: 'entity_name'
+2026-05-30 13:46:38 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 13:46:38 | INFO     | __main__:_run_social_computing:131 | PHASE 3: Social Network Computing
+2026-05-30 13:46:38 | INFO     | app.social.pipeline:execute:63 | ======================================================================
+2026-05-30 13:46:38 | INFO     | app.social.pipeline:execute:64 | PHASE 3: SOCIAL NETWORK COMPUTING LAYER
+2026-05-30 13:46:38 | INFO     | app.social.pipeline:execute:65 | ======================================================================
+2026-05-30 13:46:38 | INFO     | app.social.pipeline:execute:69 | 
+[PHASE 3a] Data Integration & HIN Construction
+2026-05-30 13:46:38 | INFO     | app.social.builders.graph_builder:build:65 | PHASE 3a: Building Heterogeneous Information Network
+2026-05-30 13:46:38 | INFO     | app.social.loaders.csv_loader:load_all:43 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 13:46:38 | DEBUG    | app.social.loaders.csv_loader:load_entities:64 | Loaded 11314 entity rows
+2026-05-30 13:46:38 | DEBUG    | app.social.loaders.csv_loader:load_relations:76 | Loaded 5586 relation rows
+2026-05-30 13:46:38 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:88 | Loaded 6232 sentiment rows
+2026-05-30 13:46:38 | INFO     | app.social.loaders.csv_loader:load_all:49 |   Entities: 11,314 rows
+2026-05-30 13:46:38 | INFO     | app.social.loaders.csv_loader:load_all:50 |   Relations: 5,586 rows
+2026-05-30 13:46:38 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Sentiments: 6,232 rows
+2026-05-30 13:46:38 | INFO     | app.social.builders.graph_builder:_build_nodes:91 | Building nodes (concept-level deduplication)...
+2026-05-30 13:46:38 | DEBUG    | app.social.builders.graph_builder:_build_nodes:118 |   Added 5,925 deduplicated nodes
+2026-05-30 13:46:38 | INFO     | app.social.builders.graph_builder:_build_nodes:119 |   Deduplication ratio: 191.0%
+2026-05-30 13:46:38 | INFO     | app.social.builders.graph_builder:_build_edges:133 | Building weighted edges...
+2026-05-30 13:46:38 | DEBUG    | app.social.builders.graph_builder:_build_edges:186 |   Added 5,221 weighted edges
+2026-05-30 13:46:38 | DEBUG    | app.social.builders.graph_builder:_build_edges:187 |   Edge weight formula: w_ij = 0.7*f_cooccur + 0.3*g_causal
+2026-05-30 13:46:38 | INFO     | app.social.builders.graph_builder:_attach_sentiments:197 | Attaching sentiment attributes to nodes...
+2026-05-30 13:46:39 | DEBUG    | app.social.builders.graph_builder:_attach_sentiments:276 |   Attached sentiment data to 3148 nodes
+2026-05-30 13:46:39 | SUCCESS  | app.social.builders.graph_builder:build:79 | ✓ Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 13:46:39 | INFO     | app.social.pipeline:execute:73 | 
+[PHASE 3b] Enrichment & Analysis
+2026-05-30 13:46:39 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 13:46:39 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 13:46:39 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 13:46:39 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 13:46:39 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 13:46:39 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 13:46:39 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 13:46:39 | INFO     | app.social.pipeline:execute:77 | 
+[PHASE 3c] Visualization & Export
+2026-05-30 13:46:39 | INFO     | app.social.exporters.graphml_exporter:export:41 | Exporting graph to GraphML format...
+2026-05-30 13:46:39 | ERROR    | app.social.exporters.graphml_exporter:export:51 | Failed to export GraphML: GraphML writer does not support <class 'dict'> as data values.
+2026-05-30 13:46:39 | ERROR    | app.social.pipeline:execute:87 | PHASE 3 FAILED: GraphML writer does not support <class 'dict'> as data values.
+2026-05-30 13:46:39 | ERROR    | __main__:_run_social_computing:164 | PHASE 3 failed: GraphML writer does not support <class 'dict'> as data values.
+2026-05-30 13:47:38 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 13:47:38 | INFO     | __main__:_run_social_computing:131 | PHASE 3: Social Network Computing
+2026-05-30 13:47:38 | INFO     | app.social.pipeline:execute:63 | ======================================================================
+2026-05-30 13:47:38 | INFO     | app.social.pipeline:execute:64 | PHASE 3: SOCIAL NETWORK COMPUTING LAYER
+2026-05-30 13:47:38 | INFO     | app.social.pipeline:execute:65 | ======================================================================
+2026-05-30 13:47:38 | INFO     | app.social.pipeline:execute:69 | 
+[PHASE 3a] Data Integration & HIN Construction
+2026-05-30 13:47:38 | INFO     | app.social.builders.graph_builder:build:65 | PHASE 3a: Building Heterogeneous Information Network
+2026-05-30 13:47:38 | INFO     | app.social.loaders.csv_loader:load_all:43 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 13:47:38 | DEBUG    | app.social.loaders.csv_loader:load_entities:64 | Loaded 11314 entity rows
+2026-05-30 13:47:38 | DEBUG    | app.social.loaders.csv_loader:load_relations:76 | Loaded 5586 relation rows
+2026-05-30 13:47:38 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:88 | Loaded 6232 sentiment rows
+2026-05-30 13:47:38 | INFO     | app.social.loaders.csv_loader:load_all:49 |   Entities: 11,314 rows
+2026-05-30 13:47:38 | INFO     | app.social.loaders.csv_loader:load_all:50 |   Relations: 5,586 rows
+2026-05-30 13:47:38 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Sentiments: 6,232 rows
+2026-05-30 13:47:38 | INFO     | app.social.builders.graph_builder:_build_nodes:91 | Building nodes (concept-level deduplication)...
+2026-05-30 13:47:38 | DEBUG    | app.social.builders.graph_builder:_build_nodes:118 |   Added 5,925 deduplicated nodes
+2026-05-30 13:47:38 | INFO     | app.social.builders.graph_builder:_build_nodes:119 |   Deduplication ratio: 191.0%
+2026-05-30 13:47:38 | INFO     | app.social.builders.graph_builder:_build_edges:133 | Building weighted edges...
+2026-05-30 13:47:38 | DEBUG    | app.social.builders.graph_builder:_build_edges:186 |   Added 5,221 weighted edges
+2026-05-30 13:47:38 | DEBUG    | app.social.builders.graph_builder:_build_edges:187 |   Edge weight formula: w_ij = 0.7*f_cooccur + 0.3*g_causal
+2026-05-30 13:47:38 | INFO     | app.social.builders.graph_builder:_attach_sentiments:197 | Attaching sentiment attributes to nodes...
+2026-05-30 13:47:38 | DEBUG    | app.social.builders.graph_builder:_attach_sentiments:276 |   Attached sentiment data to 3148 nodes
+2026-05-30 13:47:38 | SUCCESS  | app.social.builders.graph_builder:build:79 | ✓ Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 13:47:38 | INFO     | app.social.pipeline:execute:73 | 
+[PHASE 3b] Enrichment & Analysis
+2026-05-30 13:47:38 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 13:47:38 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 13:47:38 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 13:47:38 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 13:47:38 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 13:47:39 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 13:47:39 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 13:47:39 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 13:47:39 | INFO     | app.social.pipeline:execute:77 | 
+[PHASE 3c] Visualization & Export
+2026-05-30 13:47:39 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 13:47:39 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 13:47:39 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 13:47:39 | INFO     | app.social.exporters.json_exporter:export_metrics:54 | Exporting network metrics to JSON...
+2026-05-30 13:47:39 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:84 | ✓ JSON exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 13:47:39 | INFO     | app.social.exporters.json_exporter:export_node_data:107 | Exporting node data to JSON...
+2026-05-30 13:47:39 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:126 | ✓ Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 13:47:39 | INFO     | app.social.exporters.report_exporter:export_full_report:58 | Generating comprehensive report...
+2026-05-30 13:47:39 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:202 | ✓ Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 13:47:39 | SUCCESS  | app.social.pipeline:_run_phase_3c:185 | 
+✓ All outputs exported to: app/storage/social_network_output
+2026-05-30 13:47:39 | SUCCESS  | app.social.pipeline:execute:80 | 
+======================================================================
+2026-05-30 13:47:39 | SUCCESS  | app.social.pipeline:execute:81 | PHASE 3: COMPLETE
+2026-05-30 13:47:39 | SUCCESS  | app.social.pipeline:execute:82 | ======================================================================
+2026-05-30 13:47:39 | SUCCESS  | __main__:_run_social_computing:155 | 
+PHASE 3: COMPLETE
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:156 | Output directory: app/storage/social_network_output
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:157 | Files created:
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:158 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:159 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:160 |   - node_data.json (detailed node attributes)
+2026-05-30 13:47:39 | INFO     | __main__:_run_social_computing:161 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 13:54:00 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 13:54:00 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 13:54:00 | INFO     | app.social.pipeline:execute:63 | ======================================================================
+2026-05-30 13:54:00 | INFO     | app.social.pipeline:execute:64 | PHASE 3: SOCIAL NETWORK COMPUTING LAYER
+2026-05-30 13:54:00 | INFO     | app.social.pipeline:execute:65 | ======================================================================
+2026-05-30 13:54:00 | INFO     | app.social.pipeline:execute:69 | 
+[PHASE 3a] Data Integration & HIN Construction
+2026-05-30 13:54:00 | INFO     | app.social.builders.graph_builder:build:65 | PHASE 3a: Building Heterogeneous Information Network
+2026-05-30 13:54:00 | INFO     | app.social.loaders.csv_loader:load_all:43 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 13:54:00 | DEBUG    | app.social.loaders.csv_loader:load_entities:64 | Loaded 11314 entity rows
+2026-05-30 13:54:00 | DEBUG    | app.social.loaders.csv_loader:load_relations:76 | Loaded 5586 relation rows
+2026-05-30 13:54:00 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:88 | Loaded 6232 sentiment rows
+2026-05-30 13:54:00 | INFO     | app.social.loaders.csv_loader:load_all:49 |   Entities: 11,314 rows
+2026-05-30 13:54:00 | INFO     | app.social.loaders.csv_loader:load_all:50 |   Relations: 5,586 rows
+2026-05-30 13:54:00 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Sentiments: 6,232 rows
+2026-05-30 13:54:00 | INFO     | app.social.builders.graph_builder:_build_nodes:91 | Building nodes (concept-level deduplication)...
+2026-05-30 13:54:00 | DEBUG    | app.social.builders.graph_builder:_build_nodes:118 |   Added 5,925 deduplicated nodes
+2026-05-30 13:54:00 | INFO     | app.social.builders.graph_builder:_build_nodes:119 |   Deduplication ratio: 191.0%
+2026-05-30 13:54:00 | INFO     | app.social.builders.graph_builder:_build_edges:133 | Building weighted edges...
+2026-05-30 13:54:00 | DEBUG    | app.social.builders.graph_builder:_build_edges:186 |   Added 5,221 weighted edges
+2026-05-30 13:54:00 | DEBUG    | app.social.builders.graph_builder:_build_edges:187 |   Edge weight formula: w_ij = 0.7*f_cooccur + 0.3*g_causal
+2026-05-30 13:54:00 | INFO     | app.social.builders.graph_builder:_attach_sentiments:197 | Attaching sentiment attributes to nodes...
+2026-05-30 13:54:00 | DEBUG    | app.social.builders.graph_builder:_attach_sentiments:276 |   Attached sentiment data to 3148 nodes
+2026-05-30 13:54:00 | SUCCESS  | app.social.builders.graph_builder:build:79 | ✓ Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 13:54:00 | INFO     | app.social.pipeline:execute:73 | 
+[PHASE 3b] Enrichment & Analysis
+2026-05-30 13:54:00 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 13:54:00 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 13:54:00 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 13:54:00 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 13:54:00 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 13:54:00 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 13:54:00 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 13:54:01 | INFO     | app.social.pipeline:execute:77 | 
+[PHASE 3c] Visualization & Export
+2026-05-30 13:54:01 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 13:54:01 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 13:54:01 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 13:54:01 | INFO     | app.social.exporters.json_exporter:export_metrics:54 | Exporting network metrics to JSON...
+2026-05-30 13:54:01 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:84 | ✓ JSON exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 13:54:01 | INFO     | app.social.exporters.json_exporter:export_node_data:107 | Exporting node data to JSON...
+2026-05-30 13:54:01 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:126 | ✓ Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 13:54:01 | INFO     | app.social.exporters.report_exporter:export_full_report:58 | Generating comprehensive report...
+2026-05-30 13:54:01 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:202 | ✓ Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 13:54:01 | SUCCESS  | app.social.pipeline:_run_phase_3c:185 | 
+✓ All outputs exported to: app/storage/social_network_output
+2026-05-30 13:54:01 | SUCCESS  | app.social.pipeline:execute:80 | 
+======================================================================
+2026-05-30 13:54:01 | SUCCESS  | app.social.pipeline:execute:81 | PHASE 3: COMPLETE
+2026-05-30 13:54:01 | SUCCESS  | app.social.pipeline:execute:82 | ======================================================================
+2026-05-30 13:54:01 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 13:54:01 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 13:54:12 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 13:54:12 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 13:54:12 | INFO     | __main__:_run_dashboard:214 | Executing: streamlit run app/social/dashboard.py
+2026-05-30 13:54:41 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 13:54:41 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 13:54:41 | INFO     | __main__:_run_dashboard:214 | Executing: streamlit run app/social/dashboard.py
+2026-05-30 13:55:44 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 13:55:44 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 13:55:44 | INFO     | __main__:_run_dashboard:214 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 13:55:44 | ERROR    | __main__:_run_dashboard:221 | Failed to launch dashboard: Command '['/Users/aash/codehub/nepal-llm-sc/.venv/bin/python', '-m', 'streamlit', 'run', 'app/social/dashboard.py']' returned non-zero exit status 1.
+2026-05-30 13:58:28 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 13:58:28 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 13:58:28 | INFO     | __main__:_run_dashboard:214 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 14:22:07 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 14:22:07 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 14:22:07 | INFO     | __main__:_run_dashboard:214 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 14:27:29 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 14:27:29 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 14:27:29 | INFO     | __main__:_run_dashboard:214 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 14:32:14 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 14:32:14 | INFO     | __main__:_run_dashboard:213 | Launching HIN Experience Dashboard...
+2026-05-30 14:32:14 | INFO     | __main__:_run_dashboard:214 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 14:59:03 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 14:59:03 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 14:59:03 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 14:59:03 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 14:59:03 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 14:59:03 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 14:59:03 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 14:59:03 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 14:59:03 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 14:59:03 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 14:59:03 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 14:59:03 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 14:59:03 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 14:59:03 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 14:59:03 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 14:59:03 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 14:59:03 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 14:59:03 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 14:59:04 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 14:59:04 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 14:59:04 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 14:59:04 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 14:59:04 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 14:59:04 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 14:59:04 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 14:59:04 | INFO     | app.social.pipeline.stages:run:102 | [Phase 4] Advanced Analysis
+2026-05-30 14:59:04 | INFO     | app.social.analysis.communities:analyze:30 | Running Louvain thematic community detection...
+2026-05-30 14:59:04 | WARNING  | app.social.analysis.communities:_detect_louvain:52 | Louvain detection unavailable, using connected components fallback: No module named 'community'
+2026-05-30 14:59:26 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 14:59:26 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 14:59:26 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 14:59:26 | INFO     | app.social.pipeline.stages:run:119 | [Phase 5] Reporting
+2026-05-30 14:59:26 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 14:59:27 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 14:59:27 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 14:59:27 | INFO     | app.social.exporters.json_exporter:export_metrics:30 | Exporting network metrics JSON...
+2026-05-30 14:59:27 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:65 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 14:59:27 | INFO     | app.social.exporters.json_exporter:export_node_data:75 | Exporting node data JSON...
+2026-05-30 14:59:27 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:94 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 14:59:27 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 14:59:27 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:74 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 14:59:27 | INFO     | app.social.exporters.pyvis_exporter:export:22 | Exporting PyVis graph explorer...
+2026-05-30 14:59:28 | SUCCESS  | app.social.exporters.pyvis_exporter:export:60 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 14:59:28 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 14:59:28 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 14:59:28 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 14:59:40 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 14:59:40 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 14:59:40 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 14:59:40 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 14:59:40 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 14:59:40 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 14:59:40 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 14:59:40 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 14:59:40 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 14:59:40 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 14:59:40 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 14:59:40 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 14:59:40 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 14:59:40 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 14:59:40 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 14:59:40 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 14:59:41 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 14:59:41 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 14:59:41 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 14:59:41 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 14:59:41 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 14:59:41 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 14:59:41 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 14:59:41 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 14:59:41 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 14:59:41 | INFO     | app.social.pipeline.stages:run:102 | [Phase 4] Advanced Analysis
+2026-05-30 14:59:41 | INFO     | app.social.analysis.communities:analyze:30 | Running Louvain thematic community detection...
+2026-05-30 14:59:41 | WARNING  | app.social.analysis.communities:_detect_louvain:52 | python-louvain unavailable, trying NetworkX Louvain fallback: No module named 'community'
+2026-05-30 15:00:05 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 15:00:05 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 15:00:05 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 15:00:06 | INFO     | app.social.pipeline.stages:run:119 | [Phase 5] Reporting
+2026-05-30 15:00:06 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 15:00:06 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 15:00:06 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 15:00:06 | INFO     | app.social.exporters.json_exporter:export_metrics:30 | Exporting network metrics JSON...
+2026-05-30 15:00:06 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:65 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 15:00:06 | INFO     | app.social.exporters.json_exporter:export_node_data:75 | Exporting node data JSON...
+2026-05-30 15:00:06 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:94 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 15:00:06 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 15:00:06 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:74 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 15:00:06 | INFO     | app.social.exporters.pyvis_exporter:export:22 | Exporting PyVis graph explorer...
+2026-05-30 15:00:07 | SUCCESS  | app.social.exporters.pyvis_exporter:export:60 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 15:00:07 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 15:00:07 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 15:00:07 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 15:26:41 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 15:26:41 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 15:26:41 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 15:26:41 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 15:26:41 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 15:26:41 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 15:26:41 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 15:26:41 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 15:26:41 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 15:26:41 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 15:26:41 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 15:26:41 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 15:26:41 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 15:26:41 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 15:26:41 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 15:26:41 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 15:26:41 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 15:26:41 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 15:26:42 | INFO     | app.social.analysis.sacred_secular:analyze:42 | Analyzing sacred vs non-sacred network...
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.sacred_secular:analyze:79 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 15:26:42 | DEBUG    | app.social.analysis.sacred_secular:analyze:80 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 15:26:42 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:93 | Analyzing trip type segmentation...
+2026-05-30 15:26:42 | INFO     | app.social.pipeline.stages:run:102 | [Phase 4] Advanced Analysis
+2026-05-30 15:26:42 | INFO     | app.social.analysis.communities:analyze:46 | Running Louvain thematic community detection...
+2026-05-30 15:26:42 | WARNING  | app.social.analysis.communities:_detect_louvain:79 | python-louvain unavailable, trying NetworkX Louvain fallback: No module named 'community'
+2026-05-30 15:27:04 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 15:27:05 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 15:27:05 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 15:27:05 | INFO     | app.social.pipeline.stages:run:119 | [Phase 5] Reporting
+2026-05-30 15:27:05 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 15:27:05 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 15:27:05 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 15:27:05 | INFO     | app.social.exporters.json_exporter:export_metrics:30 | Exporting network metrics JSON...
+2026-05-30 15:27:05 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:65 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 15:27:05 | INFO     | app.social.exporters.json_exporter:export_node_data:75 | Exporting node data JSON...
+2026-05-30 15:27:06 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:96 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 15:27:06 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 15:27:06 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:74 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 15:27:06 | INFO     | app.social.exporters.pyvis_exporter:export:22 | Exporting PyVis graph explorer...
+2026-05-30 15:27:06 | SUCCESS  | app.social.exporters.pyvis_exporter:export:61 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 15:27:06 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 15:27:06 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 15:27:06 | INFO     | __main__:_run_social_computing:169 |   - graph_explorer.html (interactive graph explorer)
+2026-05-30 16:16:05 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 16:16:05 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 16:16:05 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 16:16:05 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 16:16:05 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 16:16:05 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 16:16:05 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 16:16:05 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 16:16:05 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 16:16:05 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 16:16:05 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 16:16:05 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 16:16:05 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 16:16:05 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 16:16:05 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 16:16:05 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 16:16:05 | INFO     | app.social.analysis.sacred_secular:analyze:49 | Analyzing sacred vs non-sacred network...
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.sacred_secular:analyze:86 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 16:16:05 | DEBUG    | app.social.analysis.sacred_secular:analyze:87 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 16:16:05 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:100 | Analyzing trip type segmentation...
+2026-05-30 16:16:05 | INFO     | app.social.analysis.aspect_sentiment:analyze:27 | Computing aspect-level sentiment intelligence...
+2026-05-30 16:16:05 | INFO     | app.social.pipeline.stages:run:105 | [Phase 4] Advanced Analysis
+2026-05-30 16:16:05 | INFO     | app.social.analysis.communities:analyze:46 | Running Louvain thematic community detection...
+2026-05-30 16:16:05 | WARNING  | app.social.analysis.communities:_detect_louvain:79 | python-louvain unavailable, trying NetworkX Louvain fallback: No module named 'community'
+2026-05-30 16:16:29 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 16:16:29 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 16:16:29 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 16:16:30 | INFO     | app.social.pipeline.stages:run:122 | [Phase 5] Reporting
+2026-05-30 16:16:30 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 16:16:30 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 16:16:30 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 16:16:30 | INFO     | app.social.exporters.json_exporter:export_metrics:31 | Exporting network metrics JSON...
+2026-05-30 16:16:30 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:86 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 16:16:30 | INFO     | app.social.exporters.json_exporter:export_node_data:194 | Exporting node data JSON...
+2026-05-30 16:16:31 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:215 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 16:16:31 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 16:16:31 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:75 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 16:16:31 | INFO     | app.social.exporters.pyvis_exporter:export:27 | Exporting PyVis graph explorer...
+2026-05-30 16:16:31 | SUCCESS  | app.social.exporters.pyvis_exporter:export:30 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 16:16:31 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 16:16:31 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 16:16:31 | INFO     | __main__:_run_social_computing:169 |   - graph_explorer.html (interactive graph explorer)
+2026-05-30 16:25:16 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 16:25:16 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 16:25:16 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 16:25:16 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 16:25:16 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 16:25:16 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 16:25:16 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 16:25:16 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 16:25:16 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 16:25:16 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 16:25:16 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 16:25:16 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 16:25:16 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 16:25:16 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 16:25:16 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 16:25:16 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 16:25:16 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 16:25:16 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 16:25:17 | INFO     | app.social.analysis.sacred_secular:analyze:49 | Analyzing sacred vs non-sacred network...
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.sacred_secular:analyze:86 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 16:25:17 | DEBUG    | app.social.analysis.sacred_secular:analyze:87 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 16:25:17 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:100 | Analyzing trip type segmentation...
+2026-05-30 16:25:17 | INFO     | app.social.analysis.aspect_sentiment:analyze:27 | Computing aspect-level sentiment intelligence...
+2026-05-30 16:25:17 | INFO     | app.social.pipeline.stages:run:105 | [Phase 4] Advanced Analysis
+2026-05-30 16:25:17 | INFO     | app.social.analysis.communities:analyze:46 | Running Louvain thematic community detection...
+2026-05-30 16:25:17 | WARNING  | app.social.analysis.communities:_detect_louvain:79 | python-louvain unavailable, trying NetworkX Louvain fallback: No module named 'community'
+2026-05-30 16:25:47 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 16:25:47 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 16:25:47 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 16:25:47 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 16:25:47 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 16:25:47 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 16:25:47 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 16:25:47 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 16:25:47 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 16:25:47 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 16:25:47 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 16:25:47 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 16:25:47 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 16:25:47 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 16:25:47 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 16:25:47 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 16:25:48 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 16:25:48 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 16:25:48 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 16:25:48 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 16:25:48 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 16:25:48 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 16:25:48 | INFO     | app.social.analysis.sacred_secular:analyze:49 | Analyzing sacred vs non-sacred network...
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.sacred_secular:analyze:86 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 16:25:48 | DEBUG    | app.social.analysis.sacred_secular:analyze:87 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 16:25:48 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:100 | Analyzing trip type segmentation...
+2026-05-30 16:25:48 | INFO     | app.social.analysis.aspect_sentiment:analyze:27 | Computing aspect-level sentiment intelligence...
+2026-05-30 16:25:48 | INFO     | app.social.pipeline.stages:run:105 | [Phase 4] Advanced Analysis
+2026-05-30 16:25:48 | INFO     | app.social.analysis.communities:analyze:46 | Running Louvain thematic community detection...
+2026-05-30 16:26:09 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 16:26:09 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 16:26:10 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 16:26:10 | INFO     | app.social.pipeline.stages:run:122 | [Phase 5] Reporting
+2026-05-30 16:26:10 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 16:26:10 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 16:26:10 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 16:26:10 | INFO     | app.social.exporters.json_exporter:export_metrics:31 | Exporting network metrics JSON...
+2026-05-30 16:26:10 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:86 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 16:26:10 | INFO     | app.social.exporters.json_exporter:export_node_data:194 | Exporting node data JSON...
+2026-05-30 16:26:11 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:215 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 16:26:11 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 16:26:11 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:75 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 16:26:11 | INFO     | app.social.exporters.pyvis_exporter:export:27 | Exporting PyVis graph explorer...
+2026-05-30 16:26:11 | SUCCESS  | app.social.exporters.pyvis_exporter:export:30 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 16:26:11 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 16:26:11 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 16:26:11 | INFO     | __main__:_run_social_computing:169 |   - graph_explorer.html (interactive graph explorer)
+2026-05-30 16:29:59 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 16:29:59 | INFO     | __main__:_run_dashboard:214 | Launching HIN Experience Dashboard...
+2026-05-30 16:29:59 | INFO     | __main__:_run_dashboard:215 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
+2026-05-30 16:33:49 | INFO     | __main__:main:37 | Starting pipeline in 'clean_table' mode
+2026-05-30 16:33:49 | ERROR    | __main__:main:70 | Unknown mode: clean_table
+2026-05-30 16:33:49 | INFO     | __main__:main:71 | Valid modes: 'scrape', 'clean', 'clean_tables', 'social', or 'dashboard'
+2026-05-30 16:33:54 | INFO     | __main__:main:37 | Starting pipeline in 'clean_tables' mode
+2026-05-30 16:33:54 | INFO     | __main__:_run_table_cleaner:178 | PHASE 2.5: Table Cleaning & Semantic Alignment
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:45 | ======================================================================
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:46 | PHASE 2.5: TABLE CLEANING PIPELINE
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:47 | ======================================================================
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:66 | Processing entities_table.csv...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_entities:35 | Cleaning entities table...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_entities:42 |   Entity type violations fixed: 28 -> 0
+2026-05-30 16:33:54 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/entities_clean.csv
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:66 | Processing sentiments_table.csv...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_sentiments:55 | Cleaning sentiments table...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_sentiments:62 |   Sentiment label violations fixed: 11 -> 0
+2026-05-30 16:33:54 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/sentiments_clean.csv
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:66 | Processing relations_table.csv...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_relations:73 | Cleaning relations table...
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_relations:80 |   Relation type violations fixed: 16 -> 0
+2026-05-30 16:33:54 | INFO     | app.cleaning.table_cleaner:clean_relations:85 |   Self-relations removed: 4
+2026-05-30 16:33:54 | SUCCESS  | app.pipeline.table_executor:execute:78 | ✓ Saved cleaned table: app/storage/tables/processed/relations_clean.csv
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:80 | ======================================================================
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:81 | TABLE CLEANING COMPLETE
+2026-05-30 16:33:54 | INFO     | app.pipeline.table_executor:execute:82 | ======================================================================
+2026-05-30 16:33:54 | SUCCESS  | __main__:_run_table_cleaner:202 | 
+TABLE CLEANING SUCCESS
+2026-05-30 16:33:54 | INFO     | __main__:_run_table_cleaner:203 | Processed tables saved to: app/storage/tables/processed
+2026-05-30 16:33:54 | INFO     | __main__:_run_table_cleaner:205 |   - entities_table.csv: 11,314 rows
+2026-05-30 16:33:54 | INFO     | __main__:_run_table_cleaner:205 |   - sentiments_table.csv: 6,232 rows
+2026-05-30 16:33:54 | INFO     | __main__:_run_table_cleaner:205 |   - relations_table.csv: 5,586 rows
+2026-05-30 16:35:09 | INFO     | __main__:main:37 | Starting pipeline in 'social' mode
+2026-05-30 16:35:09 | INFO     | __main__:_run_social_computing:138 | PHASE 3: Social Network Computing
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.executor:execute:37 | ======================================================================
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.executor:execute:38 | HERITAGE EXPERIENCE NETWORK PIPELINE
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.executor:execute:39 | ======================================================================
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.stages:run:37 | [Phase 1] Data Preparation
+2026-05-30 16:35:09 | INFO     | app.social.loaders.csv_loader:load_all:45 | Loading PHASE 3 data from app/storage/tables/processed
+2026-05-30 16:35:09 | DEBUG    | app.social.loaders.csv_loader:load_entities:66 | Loaded 11314 entity rows
+2026-05-30 16:35:09 | DEBUG    | app.social.loaders.csv_loader:load_relations:78 | Loaded 5586 relation rows
+2026-05-30 16:35:09 | DEBUG    | app.social.loaders.csv_loader:load_sentiments:90 | Loaded 6232 sentiment rows
+2026-05-30 16:35:09 | INFO     | app.social.loaders.csv_loader:load_all:51 |   Entities: 11,314 rows
+2026-05-30 16:35:09 | INFO     | app.social.loaders.csv_loader:load_all:52 |   Relations: 5,586 rows
+2026-05-30 16:35:09 | INFO     | app.social.loaders.csv_loader:load_all:53 |   Sentiments: 6,232 rows
+2026-05-30 16:35:09 | INFO     | app.social.services.data_service:_load_reviews:36 | Loading review analytics data from app/storage/processed/pashupatinath_reviews_clean.csv
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.stages:run:45 | [Phase 2] Network Construction
+2026-05-30 16:35:09 | INFO     | app.social.graph.builder:build:31 | Building Heterogeneous Heritage Experience Network
+2026-05-30 16:35:09 | SUCCESS  | app.social.graph.builder:build:38 | Graph built: 5,925 nodes, 5,221 edges
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.stages:run:54 | [Phase 3] Core Network Analysis
+2026-05-30 16:35:09 | INFO     | app.social.analysis.centrality:analyze:33 | Computing centrality metrics...
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.centrality:analyze:48 |   Top node: non-hindu entry ban (centrality: 0.0300)
+2026-05-30 16:35:09 | INFO     | app.social.analysis.centrality:get_type_level_centrality:69 | Computing type-level centrality...
+2026-05-30 16:35:09 | INFO     | app.social.analysis.entropy:compute_entropy:38 | Computing network entropy...
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.entropy:compute_entropy:63 |   Entropy: 11.1348 bits
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.entropy:compute_entropy:64 |   Traditional baseline: 6.1545 bits
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.entropy:compute_entropy:65 |   Improvement: 80.9%
+2026-05-30 16:35:09 | INFO     | app.social.analysis.temporal:analyze:41 | Computing temporal network snapshots...
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing early_period (2008-2012)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing growth_period (2013-2017)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing pre_covid_peak (2018-2019)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_onset (2020-2020)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing covid_deep (2021-2021)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_early (2022-2022)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing recovery_late (2023-2023)
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.temporal:analyze:46 |   Processing post_recovery (2024-9999)
+2026-05-30 16:35:09 | INFO     | app.social.analysis.sacred_secular:analyze:49 | Analyzing sacred vs non-sacred network...
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.sacred_secular:analyze:86 |   Sacred nodes: 3512 | avg centrality: 0.0003
+2026-05-30 16:35:09 | DEBUG    | app.social.analysis.sacred_secular:analyze:87 |   Non-sacred nodes: 2413 | avg centrality: 0.0002
+2026-05-30 16:35:09 | INFO     | app.social.analysis.sacred_secular:analyze_trip_types:100 | Analyzing trip type segmentation...
+2026-05-30 16:35:09 | INFO     | app.social.analysis.aspect_sentiment:analyze:27 | Computing aspect-level sentiment intelligence...
+2026-05-30 16:35:09 | INFO     | app.social.pipeline.stages:run:105 | [Phase 4] Advanced Analysis
+2026-05-30 16:35:09 | INFO     | app.social.analysis.communities:analyze:46 | Running Louvain thematic community detection...
+2026-05-30 16:35:31 | INFO     | app.social.analysis.metapaths:analyze:41 | Analyzing semantic meta-path trajectories...
+2026-05-30 16:35:31 | INFO     | app.social.analysis.sentiment_flow:analyze:24 | Analyzing sentiment propagation and assortativity...
+2026-05-30 16:35:31 | INFO     | app.social.analysis.motifs:analyze:26 | Mining temporal semantic motifs...
+2026-05-30 16:35:31 | INFO     | app.social.pipeline.stages:run:122 | [Phase 5] Reporting
+2026-05-30 16:35:31 | INFO     | app.social.exporters.graphml_exporter:export:42 | Exporting graph to GraphML format...
+2026-05-30 16:35:32 | SUCCESS  | app.social.exporters.graphml_exporter:export:64 | ✓ GraphML exported: app/storage/social_network_output/network.graphml
+2026-05-30 16:35:32 | INFO     | app.social.exporters.graphml_exporter:export:65 |   Open in: Gephi, Cytoscape, yEd, or NetworkX
+2026-05-30 16:35:32 | INFO     | app.social.exporters.json_exporter:export_metrics:31 | Exporting network metrics JSON...
+2026-05-30 16:35:32 | SUCCESS  | app.social.exporters.json_exporter:export_metrics:86 | JSON metrics exported: app/storage/social_network_output/network_metrics.json
+2026-05-30 16:35:32 | INFO     | app.social.exporters.json_exporter:export_node_data:194 | Exporting node data JSON...
+2026-05-30 16:35:32 | SUCCESS  | app.social.exporters.json_exporter:export_node_data:215 | Node data exported: app/storage/social_network_output/node_data.json
+2026-05-30 16:35:32 | INFO     | app.social.exporters.report_exporter:export_full_report:31 | Generating markdown report...
+2026-05-30 16:35:32 | SUCCESS  | app.social.exporters.report_exporter:export_full_report:75 | Report exported: app/storage/social_network_output/PHASE3_REPORT.md
+2026-05-30 16:35:32 | INFO     | app.social.exporters.pyvis_exporter:export:27 | Exporting PyVis graph explorer...
+2026-05-30 16:35:32 | SUCCESS  | app.social.exporters.pyvis_exporter:export:30 | Graph explorer exported: app/storage/social_network_output/graph_explorer.html
+2026-05-30 16:35:32 | SUCCESS  | app.social.pipeline.executor:execute:48 | Heritage Experience Network pipeline complete
+2026-05-30 16:35:32 | SUCCESS  | __main__:_run_social_computing:162 | 
+PHASE 3: COMPLETE
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:163 | Output directory: app/storage/social_network_output
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:164 | Files created:
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:165 |   - network.graphml (for Gephi/Cytoscape)
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:166 |   - network_metrics.json (comprehensive metrics)
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:167 |   - node_data.json (detailed node attributes)
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:168 |   - PHASE3_REPORT.md (markdown report)
+2026-05-30 16:35:32 | INFO     | __main__:_run_social_computing:169 |   - graph_explorer.html (interactive graph explorer)
+2026-05-30 16:37:20 | INFO     | __main__:main:37 | Starting pipeline in 'dashboard' mode
+2026-05-30 16:37:20 | INFO     | __main__:_run_dashboard:214 | Launching HIN Experience Dashboard...
+2026-05-30 16:37:20 | INFO     | __main__:_run_dashboard:215 | Executing: /Users/aash/codehub/nepal-llm-sc/.venv/bin/python -m streamlit run app/social/dashboard.py
